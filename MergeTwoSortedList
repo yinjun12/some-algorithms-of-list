@@ -1,0 +1,22 @@
+	ListNode* merge(ListNode* head1, ListNode* head2)
+	{
+		ListNode* head3 = (ListNode *)malloc(sizeof(ListNode));
+		ListNode* p = head3, *l1 = head1, *l2 = head2;//不带头结点的
+		while (l1&&l2)
+		{
+			if (l1->val <= l2->val)
+			{
+				p->next = l1;
+				l1 = l1->next;
+			}
+			else
+			{
+				p->next = l2;
+				l2 = l2->next;
+			}
+			p = p->next;
+		}
+		p->next = l1 ? l1 : l2;
+		return head3->next;
+
+	}
