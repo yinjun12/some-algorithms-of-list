@@ -1,0 +1,25 @@
+ListNode *creatList()//假定创建有四个结点的链表，没有头结点
+{
+	ListNode *head = (ListNode *)malloc(sizeof(ListNode));
+	ListNode *p = head;
+	for (int i = 0; i<4; i++)
+	{
+		ListNode *s = (ListNode *)malloc(sizeof(ListNode));
+		s->next = NULL;
+		std::cout << "please input a number of list:";
+		std::cin >> s->val;
+		p->next = s;
+		p = s;
+
+	}
+	return head->next;
+}
+void printList(ListNode *head)//输出
+{
+	ListNode *r = head;
+	while (r != NULL)
+	{
+		std::cout << r->val << " ";
+		r = r->next;
+	}
+}
