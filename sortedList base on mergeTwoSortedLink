@@ -1,0 +1,12 @@
+	ListNode* sortList(ListNode* head) {
+		if (head == NULL||head->next==NULL) return head;
+		ListNode *slow = head, *fast = head;
+		while (fast->next != NULL&&fast->next->next != NULL)
+		{
+			slow = slow->next;
+			fast = fast->next->next;
+		}
+		fast = slow->next;
+		slow->next = NULL;//把一个链表等分成两个链表
+		return merge(sortList(head), sortList(fast));//递归，使用merge
+	}
